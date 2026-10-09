@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Word Match Pixel V1.4 Expanded Setup</title><style>
+<title>Word Matching — Master Menu V1.1 Preview</title><style>
 *{box-sizing:border-box}body{margin:0;background:#16264e;color:#fff;font-family:"Courier New",monospace}.app{width:min(1050px,calc(100vw - 12px));margin:6px auto;padding:10px;background:#203a67;border:5px solid #0c1938;box-shadow:0 0 0 4px #f2d64b}.logo{text-align:center;font:900 clamp(28px,4vw,44px) "Courier New";letter-spacing:4px;color:#f2d64b;text-shadow:4px 4px #0c1938;margin:4px}.screen{display:none}.screen.active{display:block}.grid{display:grid;grid-template-columns:1.35fr .75fr;gap:12px}.card{background:#f6e8bd;color:#15254a;border:4px solid #101a43;padding:12px;box-shadow:inset 0 0 0 3px #fff7dc}h2{color:#26713d;font-size:18px;margin:0 0 8px}.help{color:#294361;font-size:13px;font-weight:bold;line-height:1.4}textarea,select{width:100%;background:#fff8dc;color:#15254a;border:4px solid #101a43;padding:9px;font:700 14px "Courier New"}textarea{height:min(38vh,285px);min-height:180px}button{font:900 14px "Courier New";padding:10px 14px;margin:4px;border:4px solid #101a43;background:#5cc7d8;color:#101a43;cursor:pointer;box-shadow:inset -3px -3px #2c7794,inset 3px 3px #c4ffff}.primary{background:#78df62}.yellow{background:#f2d64b}.pink{background:#ef6689}.wide{width:100%;font-size:18px}.preview{margin-top:8px;padding:9px;background:#d9eff1;color:#19324e;border:3px solid #19324e;font-size:12px}.error{color:#b9223e;min-height:18px;font-weight:bold}.voiceCheck{margin-top:10px;padding:10px;background:#d9eff1;color:#19324e;border:3px solid #19324e;font-size:12px;font-weight:bold;line-height:1.55}.voiceGood{color:#26713d}.voiceBad{color:#b9223e}.voiceWait{color:#795d00}.hud{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:7px 0;font:900 14px "Courier New";text-shadow:2px 2px #0c1938}.setBoard{background:#f2d64b;color:#15254a;border:4px solid #101a43;padding:8px 14px;text-shadow:none;box-shadow:inset 0 0 0 2px #fff1a1;text-align:center}.board{background:#112c3d;border:4px solid #0c1938;padding:14px;min-height:470px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:20px}.colTitle{text-align:center;background:#f2d64b;color:#15254a;border:4px solid #101a43;padding:8px;font-weight:900;margin-bottom:10px}.row{min-height:52px;margin:8px 0;display:flex;align-items:center;border:3px solid #0c1938;background:#f6e8bd;color:#15254a;font-weight:900;font-size:clamp(15px,2vw,20px);box-shadow:inset 0 0 0 2px #fff7dc}.num{width:48px;align-self:stretch;display:flex;align-items:center;justify-content:center;background:#5cc7d8;border-right:3px solid #0c1938;font-size:20px}.word{padding:8px 12px;flex:1}.answer{width:58px;height:38px;margin-right:7px;border:3px solid #101a43;background:#fff;text-align:center;font:900 20px "Courier New";color:#15254a}.row.correct{background:#a8ed91}.row.correct .answer{background:#d9ffd0}.row.wrong{animation:shake .18s linear 2;background:#ff9cae}@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}.status{text-align:center;min-height:36px;font:900 20px "Courier New";padding:6px}.buttons{text-align:center}.overlay{display:none;position:fixed;inset:0;background:#0c1938e8;z-index:10;align-items:center;justify-content:center;text-align:center}.overlay.show{display:flex}.big{font:900 clamp(30px,5vw,50px) "Courier New";color:#78df62;text-shadow:4px 4px #000}.msg{font:900 22px "Courier New";margin:12px}.app.expanded{position:fixed;inset:0;z-index:9999;width:100vw;height:100vh;margin:0;max-width:none;border:0;box-shadow:none;overflow:auto}@media(max-width:720px){.grid{grid-template-columns:1fr}.columns{gap:8px}.board{padding:7px}.row{font-size:14px}.num{width:36px}.answer{width:46px}}
 .mobile-submit{display:none}
 /* Mobile adaptation; desktop rules stay intact. */
@@ -8,6 +8,36 @@
 /* LINK_D1: isolated teacher/student entry styling */
 .share-panel{margin-top:9px;padding:9px;background:#d9eff1;color:#19324e;border:3px solid #19324e;font-size:12px;font-weight:bold;line-height:1.5;overflow-wrap:anywhere}
 .share-panel button{max-width:100%}#copyStudentLink{display:none}#studentEntry{display:none}#studentEntry h2{font:900 clamp(22px,3vw,34px) "Courier New";color:#176b43;margin:0 0 22px;text-transform:uppercase;overflow-wrap:anywhere}#studentEntry h2:first-child{display:none}#studentEntry .student-meta{font:900 clamp(14px,2vw,18px) "Courier New";color:#152945;margin-bottom:28px;overflow-wrap:anywhere}body.studentMode{background:#172b52}body.studentMode .app{width:min(1050px,calc(100vw - 28px));min-height:calc(100vh - 28px);margin:14px auto;padding:22px;background:#213f6d;border:5px solid #102744;box-shadow:0 0 0 4px #f3d64e}body.studentMode .logo{color:#f3d64e;font-size:clamp(34px,5vw,58px);margin:4px 0 28px}body.studentMode #menu{display:none!important}body.studentMode #studentEntry{display:block;width:min(760px,92%);max-width:none;margin:0 auto;padding:34px 28px;background:#f4e7bd;border:5px solid #152945;color:#152945;text-align:center;box-shadow:inset 0 0 0 3px #fff5d7}body.studentMode #studentEntry.playing{display:none}body.studentMode #studentPlay{display:block;width:100%;margin:0;background:#79d85b;color:#102744;font-size:clamp(18px,2.5vw,24px);padding:14px}body.studentMode #game.active{display:block}body.studentMode #mainMenu,body.studentMode #overMenu,body.studentMode #completeMenu{display:none}@media(max-width:720px){body.studentMode .app{width:calc(100vw - 16px);min-height:calc(100vh - 16px);margin:8px auto;padding:14px}body.studentMode .logo{margin-bottom:18px}body.studentMode #studentEntry{width:100%;padding:24px 14px}}
+/* Shareable Vocabulary Prototype V2 */
+.setupStep{margin:10px 0;padding:10px;background:#d8eef0;border:4px solid #152945;color:#19324e}
+.stepTitle{font:900 15px "Courier New";color:#b52f49;margin-bottom:7px}
+.stepHint{font:700 11px "Courier New";line-height:1.35;margin:5px 0 8px}
+.shareRow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.shareRow button{flex:1 1 180px}
+#copyStudentLink{display:none;background:#f3d64e}
+#studentIntro{display:none}
+#studentIntro.show{display:block}
+.studentBadge{display:none}
+.studentTitle{font:900 clamp(22px,3vw,34px) "Courier New";color:#176b43;margin:0 0 22px;text-transform:uppercase}
+.studentMeta{font:900 clamp(14px,2vw,18px) "Courier New";color:#152945;margin-bottom:28px}
+.howTo{margin-top:18px}
+.howTo summary{cursor:pointer;font:900 14px "Courier New";color:#152945}
+.howTo div{font:700 12px "Courier New";line-height:1.5;margin:10px auto 0;max-width:620px}
+body.studentMode{background:#172b52}
+body.studentMode .app{width:min(1120px,calc(100vw - 28px));min-height:calc(100vh - 28px);margin:14px auto;padding:22px;background:#213f6d;border:5px solid #102744;box-shadow:0 0 0 4px #f3d64e}
+body.studentMode .logo{color:#f3d64e;font-size:clamp(34px,5vw,58px);margin:4px 0 28px}
+body.studentMode .teacherOnly{display:none!important}
+body.studentMode #menu{display:block}
+body.studentMode #menu>.grid{display:none!important}
+body.studentMode #studentIntro{display:block;width:min(760px,92%);margin:0 auto;padding:34px 28px;background:#f4e7bd;border:5px solid #152945;color:#152945;text-align:center;box-shadow:inset 0 0 0 3px #fff5d7}
+body.studentMode #studentPlay{display:block;width:100%;margin:0;background:#79d85b;color:#102744;font-size:clamp(18px,2.5vw,24px);padding:14px}
+@media(max-width:760px){
+body.studentMode .app{width:calc(100vw - 16px);min-height:calc(100vh - 16px);margin:8px auto;padding:14px}
+body.studentMode .logo{margin-bottom:18px}
+body.studentMode #studentIntro{width:100%;padding:24px 14px}
+}
+
+
 /* Boring Teacher Vocabulary Menu v1.0 — Word Racer prototype */
 .teacherMenu{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:12px;align-items:start}
 .settingsFields{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
