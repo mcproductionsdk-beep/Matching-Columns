@@ -3,7 +3,11 @@
 <title>Matching Columns — Boring Teacher</title>
 <link rel="stylesheet" href="./styles/menu.css">
 <style>html,body{overflow:hidden}body{margin:0;background:#10192e;color:#f8f8ff;font-family:"Courier New",monospace}#matchingFrame{display:none;width:100%;height:calc(100dvh - 12px);min-height:600px;border:0;background:#16264e}#matchingFrame.playing{display:block}#app{max-width:1100px;margin:8px auto}#app[hidden]{display:none!important}body:has(#matchingFrame.playing) #app{display:none!important}</style></head>
-<body><div style="position:relative;z-index:99999;background:#ffe45c;color:#111;padding:12px;text-align:center;font:900 16px monospace">MATCHING DEDICATED REPO — ROUTE CHECK 1</div><main id="app"></main><iframe id="matchingFrame" title="Word Matching Columns gameplay" src="./matching-game.html?release=matching-core-v16-production-1"></iframe>
+<body><div style="position:relative;z-index:99999;background:#ffe45c;color:#111;padding:12px;text-align:center;font:900 16px monospace">MATCHING V1.6 — STARTUP DIAGNOSTICS</div><main id="app" style="padding:20px;text-align:center">Loading teacher menu…</main><pre id="startupError" style="white-space:pre-wrap;color:#ffde73;padding:16px"></pre><iframe id="matchingFrame" title="Word Matching Columns gameplay" src="./matching-game.html?release=matching-core-v16-production-1"></iframe>
+<script>
+window.addEventListener('error',function(e){document.getElementById('startupError').textContent='ERROR: '+(e.message||'unknown')+' '+(e.filename||'');});
+window.addEventListener('unhandledrejection',function(e){document.getElementById('startupError').textContent='REJECTION: '+String(e.reason||'unknown');});
+</script>
 <script type="module">
 import {mountTeacherMenu,mountStudentMenu} from './core/menu.js?release=core-20261020';
 import {createSharingClient,readStudentSetId} from './core/sharing.js';
@@ -25,5 +29,5 @@ if(d.type==='BT_MATCH_START_FAILED'){frame.classList.remove('playing');root.hidd
 });
 window.addEventListener('keydown',e=>{if(frame.classList.contains('playing')&&['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();},{passive:false});
 frame.addEventListener('load',()=>{ready=false;frame.contentWindow?.postMessage({type:'BT_MATCH_PING'},location.origin);});
-showMenu();frame.contentWindow?.postMessage({type:'BT_MATCH_PING'},location.origin);
+try{showMenu();}catch(e){document.getElementById('startupError').textContent='MENU ERROR: '+String(e.stack||e);throw e;}frame.contentWindow?.postMessage({type:'BT_MATCH_PING'},location.origin);
 </script></body></html>
