@@ -25,5 +25,5 @@ if(d.type==='BT_MATCH_START_FAILED'){frame.classList.remove('playing');root.hidd
 });
 window.addEventListener('keydown',e=>{if(frame.classList.contains('playing')&&['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();},{passive:false});
 frame.addEventListener('load',()=>{ready=false;frame.contentWindow?.postMessage({type:'BT_MATCH_PING'},location.origin);});
-showMenu()frame.contentWindow?.postMessage({type:'BT_MATCH_PING'},location.origin);
+showMenu();frame.contentWindow?.postMessage({type:'BT_MATCH_PING'},location.origin);
 </script></body></html>
