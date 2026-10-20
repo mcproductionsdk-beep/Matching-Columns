@@ -3,7 +3,7 @@
 <title>Matching Columns — Boring Teacher</title>
 <link rel="stylesheet" href="./styles/menu.css">
 <style>html,body{overflow-x:hidden}html{overflow-y:auto}body{overflow-y:auto;margin:0;background:#10192e;color:#f8f8ff;font-family:"Courier New",monospace}#matchingFrame{display:none;width:100%;height:calc(100dvh - 12px);min-height:600px;border:0;background:#16264e}#matchingFrame.playing{display:block}#app{max-width:1100px;margin:8px auto}#app[hidden]{display:none!important}body:has(#matchingFrame.playing) #app{display:none!important}</style></head>
-<body><div style="position:relative;z-index:99999;background:#ffe45c;color:#111;padding:12px;text-align:center;font:900 16px monospace">MATCHING V1.6 — STARTUP DIAGNOSTICS</div><main id="app"></main><iframe id="matchingFrame" title="Word Matching Columns gameplay" src="./matching-game.html?release=matching-core-v16-production-1"></iframe>
+<body><main id="app"></main><iframe id="matchingFrame" title="Word Matching Columns gameplay" src="./matching-game.html?release=matching-core-v16-production-1"></iframe>
 <script type="module">
 import {mountTeacherMenu,mountStudentMenu} from './core/menu.js?release=core-20261020';
 import {createSharingClient,readStudentSetId} from './core/sharing.js';
